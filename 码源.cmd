@@ -76,7 +76,7 @@ cls
 color 4
 echo 我们检测到上一次的运行意外结束，这可能是因为您修改了配置文件引起的，正在清除配置文件...
 timeout /t 2 /nobreak >nul
-del pastname.txt&cls&%yjqd%&goto q)
+del pastname.txt&cls&%yjqd%&echo %hy%&echo %zz%&goto q
 
 :q
 echo ----------
