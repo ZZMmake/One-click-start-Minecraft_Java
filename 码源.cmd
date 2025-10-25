@@ -1,7 +1,7 @@
 ::[Bat To Exe Converter]
 ::
 ::YAwzoRdxOk+EWAjk
-::fBw5plQjdCuDJFjX/Uo8ZR5fRgDRcTvqV/sV6+eb
+::fBw5plQjdCyDJGyX8VAjFCFuYQmDN26GIrAP4/z0/9YBRqKZjQu7oGJdIloJ2gQW8kDY8U7NX46UHTvDifGQUzGXZww7pyBLtWvl
 ::YAwzuBVtJxjWCl3EqQJgSA==
 ::ZR4luwNxJguZRRnk
 ::Yhs/ulQjdF+5
@@ -14,18 +14,18 @@
 ::dAsiuh18IRvcCxnZtBJQ
 ::cRYluBh/LU+EWAnk
 ::YxY4rhs+aU+IeA==
-::cxY6rQJ7JhzQF1fEqQJgZksaHUrXXA==
+::cxY6rQJ7JhzQF1fEqQJgZksaHUrUXA==
 ::ZQ05rAF9IBncCkqN+0xwdVsFAlXMaCXvZg==
 ::ZQ05rAF9IAHYFVzEqQK08PvduMoHzKQ/7H2ZJgF9Ch8CeqF9
 ::eg0/rx1wNQPfEVWB+kM9LVsJDIBa3OJOyDDsJ20RJ8ekwg==
 ::fBEirQZwNQPfEVWB+kM9LVsJDGQ=
-::cRolqwZ3JBvQF1fEqQIGeVUByvhiu7BSgVz0bQQeahpM8wNMBqxt/WAxiOTfdWb3EME+rx7HNP2zcE3wwHs=
+::cRolqwZ3JBvQF1fEqQIGeVUCyehnuZtxV/tNuqapagVt8B1MAWTbggsBADxkwmf6AsMYufY=
 ::dhA7uBVwLU+EWDk=
 ::YQ03rBFzNR3SWATElA==
 ::dhAmsQZ3MwfNWATEcprorvO7y+1qupZZg2jubTkF4uWNo0Ma0TX6/FInX3pKrzz/bIgg/UviUqGMHBDpiMak+spx6//7LISKMLxdsS9zN9IdzbxBaZfck6qjA7k+CPPQ6A61HzPtgXQ7LKJ5aHOVN516tmmH7KeB
 ::ZQ0/vhVqMQ3MEVWAtB9wSA==
 ::Zg8zqx1/OA3MEVWAtB9wSA==
-::dhA7pRFwIByZRRkCOYa49dTQl9IG544+20mYMDJ+HyUCSIWbjDq5kGBfB0gJ1CicNqlsukGpDJTeQCCE0cbdjvz5OorkRui1YOFj0kJ0c4YYjig=
+::dhA7pRFwIByZRRkCOYa49dTQl9IG544+20mYMDJ+HyUCSIWbjDq5kGBfB0gJ1CicNqlsukGpDJTeQCCE0cbdjvz5OorkRui1YOFj0kJ0c4YYjgeu718YDmf7W5nYmD8rc4kn1cQKxyir/gP8kKhf60LSU6gFECzOz6klO8UJ/gH5e13JiKcYZ//gbr77AjDcHEMemnGj
 ::Zh4grVQjdCyDJGyX8VAjFCFuYQmDN26GIrAP4/z0/9YBRqKZjQu7oGJdIloJ2gQW8kDY8U7NX46UHTvDifGQUzGX6+DYLImZMIx0sjdTNuUpBE2R4ys=
 ::YB416Ek+ZG8=
 ::
@@ -33,49 +33,50 @@
 ::978f952a14a936cc963da21a135fa983
 
 @echo off
+if exist NOERROR (del error)
 start 更新日志.txt
-set qv=V1.5最终版
+set qv=V1.6
 set hy=一键启动《Minecraft：Java版》%qv%
 set zz=By 哔哩哔哩@ZZMmake
+set del=if exist error (del error)
+set yjqd=title %hy%&echo %hy%&echo %zz%
 color 9
-title %hy%
-echo %hy%
-echo %zz%
-if exist error.txt (goto NR)
-echo RUNING>error.txt
-if exist pastname.txt (goto Pn)
+%yjqd%
+if exist error (goto NR)
+echo RUNING>error
+if exist pastname.txt (set s=1&goto Pn)
 echo NULL>pastname.txt
 goto q
 
 :Pn
 set /p pn=<pastname.txt
+cls
+echo %hy%
+echo %zz%
 echo ----------
 echo 是否使用上一次的用户名？（%pn%）
+if %s%==1 set /p "=>" <nul
 echo 1.可以！
+if %s%==2 set /p "=>" <nul
 echo 2.异议！
 echo ----------
-set /p AN="（请输入序号，注意是阿拉伯数字）请选择："
-if %AN%==2 (cls&echo %hy%&echo %zz%&goto q)
-if %AN%==1 (set n=%pn%&cls&goto A)
-color 4
-echo ?
-timeout /t 2 /nobreak >nul
-(cls&set n=NULL&echo %hy%&echo %zz%&goto Pn)
+for /f %%s in ('powershell "[int][Console]::ReadKey(1).key"') do (
+if not %%s==13 (
+if %%s==38 if not %s%==1 set /a s-=1
+if %%s==40 if not %s%==2 set /a s+=1
+goto :Pn
+)
+)
+if %s%==2 (cls&echo %hy%&echo %zz%&goto q)
+if %s%==1 (set n=%pn%&cls&goto A)
 
 :NR
 timeout /t 2 /nobreak >nul
 cls
 color 4
-echo 我们检测到上一次的运行意外结束，这可能是因为您修改了配置文件引起的，是否清除配置文件？
-echo ----------
-echo 1.好的
-echo ----------
-set /p NR="（请输入阿拉伯数字）请选择："
-if %NR%==1 (del pastname.txt&cls&echo %hy%&echo %zz%&goto q)
-cls
-echo 看起来您输入了错误的信息。
+echo 我们检测到上一次的运行意外结束，这可能是因为您修改了配置文件引起的，正在清除配置文件...
 timeout /t 2 /nobreak >nul
-cls&goto NR
+del pastname.txt&cls&%yjqd%&goto q)
 
 :q
 echo ----------
@@ -89,28 +90,34 @@ color 9
 :A
 if %n%==ZZMmake (cls&color 4&set n=NULL&echo %hy%&echo %zz%&echo ----------&echo 您的用户名看起来不是个好名字。&goto q)
 if %n%==trueZZMmake (set n=ZZMmake)
-del error.txt
+%del%
 color 9
+
+:AA
+cls
 echo %hy%
 echo %zz%
 title %hy%    用户名:%n%
-echo -----------
+echo ----------
 echo 请选择版本
 echo -----------
+if %s%==1 set /p "=>" <nul
 echo 1.(1.12.2)
+if %s%==2 set /p "=>" <nul
 echo 2.(15w14a)爱-2015愚人节版本
+if %s%==3 set /p "=>" <nul
 echo 3.打开1.12.2模组文件夹
 echo -----------
-set /p "v=（请输入序号，注意是阿拉伯数字）请选择版本："
-if %v%==1 (color 2&cls&title %hy%     1.12.2游戏中...    用户名:%n%&goto B)
-if %v%==2 (color 2&cls&title %hy%     15w14a游戏中...    用户名:%n%&goto C)
-if %v%==3 (color 2&cls&start .minecraft\versions\1.12.2-Forge_14.23.5.2847-OptiFine_G5\mods&goto A)
-echo -----------
-color 4
-echo 请输入正确的阿拉伯数字序号！
-timeout /t 2 /nobreak >nul
-cls
-goto A
+for /f %%s in ('powershell "[int][Console]::ReadKey(1).key"') do (
+if not %%s==13 (
+if %%s==38 if not %s%==1 set /a s-=1
+if %%s==40 if not %s%==3 set /a s+=1
+goto :AA
+)
+)
+if %s%==1 (color 2&cls&title %hy%     1.12.2游戏中...    用户名:%n%&goto B)
+if %s%==2 (color 2&cls&title %hy%     15w14a游戏中...    用户名:%n%&goto C)
+if %s%==3 (color 2&cls&start .minecraft\versions\1.12.2-Forge_14.23.5.2847-OptiFine_G5\mods&goto A)
 
 :B
 color 2
