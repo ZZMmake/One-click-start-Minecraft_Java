@@ -49,5 +49,5 @@
 > GitHub：https://github.com/ZZMmake/One-click-start-Minecraft_Java
 > 123网盘：https://www.123684.com/s/E6wEjv-Iqhgd
 
-####友情链接：
+###友情链接：
 >**更坏的一键启动**：https://github.com/NP-little/One-click-start-Minecraft_Java-betterbad
