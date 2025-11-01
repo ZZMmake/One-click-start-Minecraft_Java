@@ -1,5 +1,7 @@
 # 一键启动《Minecraft：Java版》V1.6正式发布
 
+>值得注意的是，此项目**已停止更新**，你可以跳转到 https://github.com/NP-little/One-click-start-Minecraft_Java-betterbad 来获取非原作者制作的fork版。
+
 ## 功能特点
 
 - **目前自带1.12.2和2015愚人节版本**
@@ -13,6 +15,18 @@
 > （已构建的exe版本及123网盘链接**不受此影响**）
 
 ### 历史更新日志：
+>V1.6.1失落的工具
+>
+>1.[维护]修复了一个小bug
+>
+>2.[维护]修改了启动参数，设置最大内存为512MB，最小128MB
+>
+>3.[新增]画了个图标，但是感觉长的好像optfine(
+>
+>4.[通知]不出意外这就是最后一个版本了，写的一堆垃圾命令我自己都看不下去了，完结撒花！
+>
+>5.[跑路]将由非本人负责的fork版继续更新（ https://github.com/NP-little/One-click-start-Minecraft_Java-betterbad ）
+
 >V1.6
 >
 >1.[新增]加入了上下键选择菜单（特别感谢此贴：https://bbs.bathome.net/thread-62157-1-1.html)
