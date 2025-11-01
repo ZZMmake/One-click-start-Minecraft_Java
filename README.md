@@ -1,5 +1,5 @@
 # 一键启动《Minecraft：Java版》V1.6正式发布
-
+![项目图标](https://yun.urldwz.com/f/X55wsZ/icon.png "项目图标")
 >值得注意的是，此项目**已停止更新**，你可以跳转到 https://github.com/NP-little/One-click-start-Minecraft_Java-betterbad 来获取非原作者制作的fork版。
 
 ## 功能特点
